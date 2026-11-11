@@ -26,9 +26,9 @@ export interface TravelGuide {
   content: string[];
 }
 
-// Replace with your Impact.com / Airalo tracking base link once approved
+// Live Travelpayouts / Airalo tracking link
 const AIRALO_AFFILIATE_BASE =
-  process.env.NEXT_PUBLIC_AFFILIATE_BASE_URL || "https://www.airalo.com";
+  process.env.NEXT_PUBLIC_AFFILIATE_BASE_URL || "https://airalo.tpk.mx/NCgvmv0k";
 
 export const OFFICIAL_EMAIL = "contact@nilesupplies.com";
 export const OFFICIAL_DOMAIN = "https://e-sim.nilesupplies.com";

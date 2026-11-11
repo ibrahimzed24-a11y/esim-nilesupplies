@@ -1,12 +1,14 @@
 const AFFILIATE_CONFIG = {
   trackingIds: {
-    travelpayoutsMarker: "599045",
-    impactAiraloId: "YOUR_IMPACT_AIRALO_ID",
-    impactSailyId: "YOUR_IMPACT_SAILY_ID",
-    yesimPartnerCode: "YOUR_YESIM_CODE",
-    klookAid: "YOUR_KLOOK_AID",
+    travelpayoutsMarker: "803946",
+    travelpayoutsSourceId: "599045",
+    impactMediaPartnerId: "8175466",
+    impactAiraloId: "8175466",
+    impactSailyId: "803946",
+    yesimPartnerCode: "803946",
+    klookAid: "803946",
     safetyWingRef: "YOUR_SAFETYWING_ID",
-    skyscannerId: "YOUR_SKYSCANNER_ID"
+    skyscannerId: "803946"
   },
   promoCodes: {
     airalo: "NEWTOAIRALO15",
@@ -17,42 +19,45 @@ const AFFILIATE_CONFIG = {
     airalo: {
       name: "Airalo",
       commission: "10-12%",
+      trackingUrl: "https://airalo.tpk.mx/NCgvmv0k",
       destinations: {
-        maldives: "https://airalo.com",
-        indonesia: "https://airalo.com",
-        malaysia: "https://airalo.com",
-        singapore: "https://airalo.com",
-        thailand: "https://airalo.com",
-        asia: "https://airalo.com"
+        maldives: "https://airalo.tpk.mx/NCgvmv0k",
+        indonesia: "https://airalo.tpk.mx/NCgvmv0k",
+        malaysia: "https://airalo.tpk.mx/NCgvmv0k",
+        singapore: "https://airalo.tpk.mx/NCgvmv0k",
+        thailand: "https://airalo.tpk.mx/NCgvmv0k",
+        asia: "https://airalo.tpk.mx/NCgvmv0k"
       }
     },
     saily: {
       name: "Saily",
       commission: "15%",
+      trackingUrl: "https://saily.tpk.mx/JTnWj9NU",
       destinations: {
-        maldives: "https://saily.com",
-        indonesia: "https://saily.com",
-        malaysia: "https://saily.com",
-        singapore: "https://saily.com",
-        thailand: "https://saily.com",
-        asia: "https://saily.com"
+        maldives: "https://saily.tpk.mx/JTnWj9NU",
+        indonesia: "https://saily.tpk.mx/JTnWj9NU",
+        malaysia: "https://saily.tpk.mx/JTnWj9NU",
+        singapore: "https://saily.tpk.mx/JTnWj9NU",
+        thailand: "https://saily.tpk.mx/JTnWj9NU",
+        asia: "https://saily.tpk.mx/JTnWj9NU"
       }
     },
     yesim: {
       name: "Yesim",
       commission: "18%",
+      trackingUrl: "https://yesim.tpk.mx/kxiQAa4j",
       destinations: {
-        maldives: "https://yesim.app",
-        indonesia: "https://yesim.app",
-        malaysia: "https://yesim.app",
-        singapore: "https://yesim.app",
-        thailand: "https://yesim.app",
-        asia: "https://yesim.app"
+        maldives: "https://yesim.tpk.mx/kxiQAa4j",
+        indonesia: "https://yesim.tpk.mx/kxiQAa4j",
+        malaysia: "https://yesim.tpk.mx/kxiQAa4j",
+        singapore: "https://yesim.tpk.mx/kxiQAa4j",
+        thailand: "https://yesim.tpk.mx/kxiQAa4j",
+        asia: "https://yesim.tpk.mx/kxiQAa4j"
       }
     }
   },
   upsells: {
-    klookTransfers: "https://klook.com",
+    klookTransfers: "https://klook.tpk.mx/zYOaqbX7",
     safetyWing: "https://safetywing.com",
     skyscanner: "https://skyscanner.net"
   }
@@ -61,6 +66,7 @@ const AFFILIATE_CONFIG = {
 function getAffiliateLink(providerKey, destinationKey) {
   const provider = AFFILIATE_CONFIG.providers[providerKey];
   if (!provider) return "#";
+  if (provider.trackingUrl) return provider.trackingUrl;
   const baseUrl = provider.destinations[destinationKey] || provider.destinations.asia;
   const tpMarker = AFFILIATE_CONFIG.trackingIds.travelpayoutsMarker;
   if (tpMarker && tpMarker !== "YOUR_TP_MARKER_ID") {
