@@ -547,6 +547,190 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* HIGHEST-PAYING TRAVEL PARTNER DIRECTORY SECTION */}
+      <section id="vip-partners" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-20">
+        <div className="mb-8">
+          <span className="text-xs font-extrabold text-cyan-700 uppercase tracking-wider block mb-1">
+            VIP & High-Yield Partner Highlights
+          </span>
+          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+            Highest-Paying Travel Affiliate Partners
+          </h2>
+          <p className="text-slate-600 mt-2 text-base max-w-3xl leading-relaxed">
+            Not all high commission rates are created equal. A 7 percent commission on a $3,000 business-class fare pays more than a 30 percent commission on a $50 city tour. Compare programs at a glance, then select your audience fit.
+          </p>
+        </div>
+
+        {/* COMPARISON TABLE */}
+        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm mb-10">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-slate-900 text-white font-bold">
+              <tr>
+                <th className="p-3.5">Brand</th>
+                <th className="p-3.5">Category</th>
+                <th className="p-3.5">Commission / CPA</th>
+                <th className="p-3.5">Cookie Duration</th>
+                <th className="p-3.5">Audience Fit</th>
+                <th className="p-3.5">Link</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200 text-slate-700">
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">Skyscanner</td>
+                <td className="p-3.5">Travel search engine</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">20% redirect / 40% booking</span></td>
+                <td className="p-3.5">30 days</td>
+                <td className="p-3.5">Multi-city flight routing & stopover bargains</td>
+                <td className="p-3.5"><a href="#" data-high-yield="skyscanner" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">Pelago (Singapore Airlines)</td>
+                <td className="p-3.5">Experiences</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">3–10% CPA</span></td>
+                <td className="p-3.5">30 days</td>
+                <td className="p-3.5">Curated Southeast Asia activities & Changi attractions</td>
+                <td className="p-3.5"><a href="#" data-high-yield="pelago" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">La Compagnie Airlines</td>
+                <td className="p-3.5">Luxury airline</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">7% CPA ($210+ / booking)</span></td>
+                <td className="p-3.5">30 days</td>
+                <td className="p-3.5">All-business-class transcontinental luxury travel</td>
+                <td className="p-3.5"><a href="#" data-high-yield="laCompagnie" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">Tahiti Village Resort & Spa</td>
+                <td className="p-3.5">Hotels & Island Resorts</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">10% CPA</span></td>
+                <td className="p-3.5">28 days</td>
+                <td className="p-3.5">Island-style resort suites & vacation stays</td>
+                <td className="p-3.5"><a href="#" data-high-yield="tahitiVillage" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">Extra Holidays</td>
+                <td className="p-3.5">Hotels / Condos</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">10% CPA</span></td>
+                <td className="p-3.5">30 days</td>
+                <td className="p-3.5">Multi-room condo suites & extended vacation rentals</td>
+                <td className="p-3.5"><a href="#" data-high-yield="extraHolidays" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">PointsYeah</td>
+                <td className="p-3.5">Travel rewards</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">30% CPA</span></td>
+                <td className="p-3.5">30 days</td>
+                <td className="p-3.5">Live points & award flight seat finder</td>
+                <td className="p-3.5"><a href="#" data-high-yield="pointsYeah" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">Tinggly</td>
+                <td className="p-3.5">Experience gifting</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">10–20% CPA</span></td>
+                <td className="p-3.5">30 days</td>
+                <td className="p-3.5">Honeymoon gift boxes & romantic bucket-list vouchers</td>
+                <td className="p-3.5"><a href="#" data-high-yield="tinggly" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">4S eSIM</td>
+                <td className="p-3.5">eSIM / mobile</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">25% CPA</span></td>
+                <td className="p-3.5">30 days</td>
+                <td className="p-3.5">High-capacity international travel data</td>
+                <td className="p-3.5"><a href="#" data-high-yield="esim4s" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">Amigo eSIM</td>
+                <td className="p-3.5">eSIM / mobile</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">20–28% CPA</span></td>
+                <td className="p-3.5">60 days</td>
+                <td className="p-3.5">Extended 60-day attribution travel connectivity</td>
+                <td className="p-3.5"><a href="#" data-high-yield="amigoEsim" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">Elife Transfer</td>
+                <td className="p-3.5">Airport transfers</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">5–7% CPA</span></td>
+                <td className="p-3.5">30 days</td>
+                <td className="p-3.5">Worldwide private airport limos & vans</td>
+                <td className="p-3.5"><a href="#" data-high-yield="elifeTransfer" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">Easirent</td>
+                <td className="p-3.5">Car rental</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">7% CPA</span></td>
+                <td className="p-3.5">15 days</td>
+                <td className="p-3.5">Airport car hire & self-drive road trips</td>
+                <td className="p-3.5"><a href="#" data-high-yield="easirent" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+              <tr className="hover:bg-slate-50">
+                <td className="p-3.5 font-bold text-slate-900">Backpack</td>
+                <td className="p-3.5">Travel insurance</td>
+                <td className="p-3.5"><span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">10% CPA</span></td>
+                <td className="p-3.5">30 days</td>
+                <td className="p-3.5">Backpacker & remote nomad emergency medical cover</td>
+                <td className="p-3.5"><a href="#" data-high-yield="backpack" className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs transition">Explore →</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* 3 CATEGORY CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col shadow-sm">
+            <span className="text-xs font-extrabold uppercase text-cyan-700 tracking-wider mb-1">
+              Flights & Rewards
+            </span>
+            <h3 className="text-xl font-extrabold text-slate-900 mb-2">
+              Luxury Airfare & Award Flights
+            </h3>
+            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+              Compare multi-city flights on <strong>Skyscanner</strong>, book all-business class boutique flights on <strong>La Compagnie</strong>, or discover award seats on <strong>PointsYeah</strong>.
+            </p>
+            <div className="mt-auto space-y-2">
+              <a href="#" data-high-yield="skyscanner" className="block text-center py-2 px-3 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white text-xs font-bold transition">Skyscanner Flights →</a>
+              <a href="#" data-high-yield="laCompagnie" className="block text-center py-2 px-3 rounded-lg bg-cyan-900 hover:bg-cyan-700 text-white text-xs font-bold transition">La Compagnie (7% CPA) →</a>
+              <a href="#" data-high-yield="pointsYeah" className="block text-center py-2 px-3 rounded-lg bg-slate-700 hover:bg-slate-800 text-white text-xs font-bold transition">PointsYeah Rewards (30% CPA) →</a>
+            </div>
+          </div>
+
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col shadow-sm">
+            <span className="text-xs font-extrabold uppercase text-cyan-700 tracking-wider mb-1">
+              Resorts & Gifting
+            </span>
+            <h3 className="text-xl font-extrabold text-slate-900 mb-2">
+              Hotels, Condos & Honeymoon Gifts
+            </h3>
+            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+              Island resort suites at <strong>Tahiti Village Resort & Spa</strong>, spacious vacation rentals via <strong>Extra Holidays</strong>, and romantic travel gift boxes with <strong>Tinggly</strong>.
+            </p>
+            <div className="mt-auto space-y-2">
+              <a href="#" data-high-yield="tahitiVillage" className="block text-center py-2 px-3 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white text-xs font-bold transition">Tahiti Village Resort (10%) →</a>
+              <a href="#" data-high-yield="extraHolidays" className="block text-center py-2 px-3 rounded-lg bg-cyan-900 hover:bg-cyan-700 text-white text-xs font-bold transition">Extra Holidays Condos (10%) →</a>
+              <a href="#" data-high-yield="tinggly" className="block text-center py-2 px-3 rounded-lg bg-slate-700 hover:bg-slate-800 text-white text-xs font-bold transition">Tinggly Gift Boxes (10–20%) →</a>
+            </div>
+          </div>
+
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col shadow-sm">
+            <span className="text-xs font-extrabold uppercase text-cyan-700 tracking-wider mb-1">
+              Mobility & Protection
+            </span>
+            <h3 className="text-xl font-extrabold text-slate-900 mb-2">
+              High-Yield eSIMs, Transit & Insurance
+            </h3>
+            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+              High-commission mobile data via <strong>4S eSIM</strong> (25%) and <strong>Amigo eSIM</strong> (28%), private rides on <strong>Elife</strong>, cars on <strong>Easirent</strong>, and nomad protection with <strong>Backpack</strong>.
+            </p>
+            <div className="mt-auto space-y-2">
+              <a href="#" data-high-yield="esim4s" className="block text-center py-2 px-3 rounded-lg bg-slate-900 hover:bg-cyan-600 text-white text-xs font-bold transition">4S eSIM (25% CPA) →</a>
+              <a href="#" data-high-yield="amigoEsim" className="block text-center py-2 px-3 rounded-lg bg-cyan-900 hover:bg-cyan-700 text-white text-xs font-bold transition">Amigo eSIM (20–28% CPA) →</a>
+              <a href="#" data-high-yield="elifeTransfer" className="block text-center py-2 px-3 rounded-lg bg-slate-700 hover:bg-slate-800 text-white text-xs font-bold transition">Elife VIP Transfers →</a>
+              <a href="#" data-high-yield="backpack" className="block text-center py-2 px-3 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition">Backpack Insurance (10%) →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* TRAVEL GUIDES SHOWCASE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">

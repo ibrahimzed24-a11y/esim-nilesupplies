@@ -82,25 +82,50 @@ NileRoam specifically targets travelers planning complex, multi-leg internationa
 // Active Tracking Configuration (js/affiliate-config.js)
 const AFFILIATE_CONFIG = {
   trackingIds: {
-    travelpayoutsMarker: "YOUR_TP_MARKER_ID",
-    impactAiraloId: "YOUR_IMPACT_AIRALO_ID",
-    impactSailyId: "YOUR_IMPACT_SAILY_ID",
-    yesimPartnerCode: "YOUR_YESIM_CODE",
-    klookAid: "YOUR_KLOOK_AID",
+    travelpayoutsMarker: "803946",
+    travelpayoutsSourceId: "599045",
+    impactMediaPartnerId: "8175466",
+    impactAiraloId: "8175466",
+    impactSailyId: "803946",
+    yesimPartnerCode: "803946",
+    klookAid: "803946",
     safetyWingRef: "YOUR_SAFETYWING_ID",
-    skyscannerId: "YOUR_SKYSCANNER_ID"
+    skyscannerId: "803946"
   },
   promoCodes: {
     airalo: "NEWTOAIRALO15",
     saily: "NILEROAM10",
-    yesim: "YESIM15"
+    yesim: "YESIM15",
+    amigoEsim: "NILEROAM20",
+    esim4s: "NILEROAM15"
   }
 };
 ```
 
 ---
 
-## 7. CONTACT & VERIFICATION
+## 7. HIGHEST-PAYING TRAVEL AFFILIATE PROGRAM HIGHLIGHTS
+
+Not all high commission rates are created equal. A 7% commission on a $3,000 business-class fare pays $210+ per booking, far more than a 30% commission on a $50 city tour. NileRoam integrates these 12 premium high-yield affiliate programs across tailored content sections:
+
+| Brand | Category | Commission / CPA | Cookie Duration | Content Alignment & Audience Fit |
+|---|---|---|---|---|
+| **Skyscanner** | Travel search engine | 20% redirect / 40% booking | 30 days | Multi-stop flights between Singapore, KL, Bangkok, Bali & Male. |
+| **Pelago by Singapore Airlines** | Experiences & Activities | 3–10% | 30 days | Premium Singapore Airlines-backed curated island and city experiences. |
+| **La Compagnie Airlines** | Luxury boutique airline | 7% | 30 days | All-business-class transcontinental travelers with high disposable budgets. |
+| **Tahiti Village Resort & Spa** | Luxury hotels & island resorts | 10% | 28 days | Vacation resort and family island escapes seeking spacious suites and spa packages. |
+| **Extra Holidays** | Vacation condo rentals | 10% | 30 days | Extended-stay travelers and multi-bedroom resort suites. |
+| **PointsYeah** | Travel rewards & award search | 30% | 30 days | Points & miles enthusiasts maximizing airline award seats for long-haul Asia travel. |
+| **Tinggly** | Experience gifting | 10–20% | 30 days | Maldives & Bali honeymoon gift boxes and romantic dinner vouchers. |
+| **4S eSIM** | eSIM / mobile connectivity | 25% | 30 days | High-margin prepaid data bundles across Asian and worldwide destinations. |
+| **Amigo eSIM** | eSIM / mobile connectivity | 20–28% | 60 days | Extended-duration 60-day attribution window for travel planners. |
+| **Elife Transfer** | Airport & intercity transfers | 5–7% | 30 days | Global VIP airport limousines, van transfers, and private intercity rides. |
+| **Easirent** | Airport car rental | 7% | 15 days | Independent road-trip vacationers renting vehicles from major airports. |
+| **Backpack** | Nomad travel insurance | 10% | 30 days | Adventure backpackers and digital nomads needing flexible medical protection. |
+
+---
+
+## 8. CONTACT & VERIFICATION
 - **Operating Entity:** Nile Supplies  
 - **Lead Administrator:** Ibrahim Zed  
 - **Direct Email:** `contact@nilesupplies.com`  
