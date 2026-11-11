@@ -297,36 +297,71 @@ const generalFaqJsonLd = {
   ]
 };
 
+const DESTINATION_IMAGES: Record<string, string> = {
+  maldives: "/images/destinations/maldives.jpg",
+  indonesia: "/images/destinations/bali.jpg",
+  malaysia: "/images/destinations/malaysia.jpg",
+  singapore: "/images/destinations/singapore.jpg",
+  thailand: "/images/destinations/thailand.jpg",
+  asia: "/images/destinations/asia-regional.jpg",
+};
+
 export default function HomePage() {
   return (
     <>
       <JsonLd data={generalFaqJsonLd} />
 
-      {/* HERO SECTION */}
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 text-white py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-flex items-center gap-2 text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 mb-6">
-            <Zap className="w-3.5 h-3.5" /> Instant QR delivery • Zero roaming surcharges
-          </span>
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-4xl leading-tight">
-            Prepaid Travel eSIMs for the Maldives, Bali & Across Asia
-          </h1>
-          <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
-            Compare <strong>Airalo</strong>, <strong>Saily</strong>, and <strong>Yesim</strong> side-by-side on Tier-1 local carriers: Ooredoo, Dhiraagu, Telkomsel, Singtel, CelcomDigi, and AIS. Install before takeoff, connect the instant you land.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <Link
-              href="#plans"
-              className="px-7 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-extrabold text-center transition shadow-lg shadow-cyan-500/20"
-            >
-              Compare All Plans Side-by-Side ↓
-            </Link>
-            <Link
-              href="#calculator"
-              className="px-7 py-3.5 rounded-xl border border-slate-700 hover:border-cyan-400 font-bold text-center transition"
-            >
-              Calculate My Data Need
-            </Link>
+      {/* HERO SECTION WITH IMAGERY */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 text-white py-16 sm:py-24">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <span className="inline-flex items-center gap-2 text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 mb-6">
+                <Zap className="w-3.5 h-3.5" /> Instant QR delivery • Zero roaming surcharges
+              </span>
+              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                Prepaid Travel eSIMs for the Maldives, Bali & Across Asia
+              </h1>
+              <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed">
+                Compare <strong>Airalo</strong>, <strong>Saily</strong>, and <strong>Yesim</strong> side-by-side on Tier-1 local carriers: Ooredoo, Dhiraagu, Telkomsel, Singtel, CelcomDigi, and AIS. Install before takeoff, connect the instant you land.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="#plans"
+                  className="px-7 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-extrabold text-center transition shadow-lg shadow-cyan-500/20"
+                >
+                  Compare All Plans Side-by-Side ↓
+                </Link>
+                <Link
+                  href="#calculator"
+                  className="px-7 py-3.5 rounded-xl border border-slate-700 hover:border-cyan-400 font-bold text-center transition"
+                >
+                  Calculate My Data Need
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-2xl overflow-hidden border border-cyan-500/30 shadow-2xl shadow-cyan-950/50 group">
+                <img
+                  src="/images/hero-traveler-esim.jpg"
+                  alt="Traveler using high-speed 5G eSIM connectivity on tropical beach"
+                  className="w-full h-80 sm:h-96 object-cover transform group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-md p-3.5 rounded-xl border border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
+                    <div>
+                      <div className="text-xs font-bold text-white">Tier-1 5G Connected</div>
+                      <div className="text-[10px] text-slate-400">Zero latency • Instant QR Activation</div>
+                    </div>
+                  </div>
+                  <span className="text-xs font-extrabold text-cyan-400">5G Fast</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -350,17 +385,31 @@ export default function HomePage() {
             <div
               key={d.key}
               id={`plans-${d.key}`}
-              className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm"
+              className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm overflow-hidden"
             >
-              <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200">
-                <div className="flex items-center gap-3">
-                  <span className="text-3xl">{d.flag}</span>
-                  <div>
-                    <h3 className="text-2xl font-extrabold text-slate-900">{d.name}</h3>
-                    <span className="inline-block mt-1 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                      ⚡ {d.carrier}
-                    </span>
+              <div className="relative rounded-xl overflow-hidden mb-6 h-36 sm:h-44 group">
+                <img
+                  src={DESTINATION_IMAGES[d.key] || "/images/destinations/maldives.jpg"}
+                  alt={`${d.name} travel and cellular connectivity`}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-transparent flex items-center p-6">
+                  <div className="text-white">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-2xl">{d.flag}</span>
+                      <h3 className="text-xl sm:text-2xl font-extrabold">{d.name}</h3>
+                    </div>
+                    <div className="text-xs text-cyan-300 font-semibold flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded bg-cyan-500/20 border border-cyan-400/30">Tier-1 5G: {d.carrier}</span>
+                      <span className="hidden sm:inline">• Instant QR Delivery</span>
+                    </div>
                   </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200">
+                <div>
+                  <span className="text-sm text-slate-500 font-medium">Recommended eSIM Data Plans:</span>
                 </div>
                 <Link
                   href="/guides/index.html"
@@ -479,70 +528,88 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col shadow-sm">
-            <div className="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-700 flex items-center justify-center mb-5">
-              <Car className="w-6 h-6" />
+          <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col shadow-sm group">
+            <div className="h-44 overflow-hidden relative">
+              <img
+                src="/images/essentials/airport-transfer.jpg"
+                alt="Speedboat transfer in Maldives"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+              />
+              <span className="absolute top-3 left-3 bg-slate-900/90 text-cyan-300 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full backdrop-blur-sm">
+                Klook Partner
+              </span>
             </div>
-            <span className="text-xs font-extrabold uppercase text-cyan-700 tracking-wider mb-1">
-              Klook Partner
-            </span>
-            <h3 className="text-xl font-extrabold text-slate-900 mb-2">
-              Airport & Island Speedboat Transfers
-            </h3>
-            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-              Skip airport taxi haggling and long queues. Pre-book private Male airport speedboats, Bali Denpasar airport pickups, and inter-island ferry passes.
-            </p>
-            <a
-              href="#"
-              data-upsell="klookTransfers"
-              className="mt-auto block text-center py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-cyan-600 text-white text-sm font-bold transition"
-            >
-              Book Transfers on Klook →
-            </a>
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-extrabold text-slate-900 mb-2">
+                Airport & Island Speedboat Transfers
+              </h3>
+              <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+                Skip airport taxi haggling and long queues. Pre-book private Male airport speedboats, Bali Denpasar airport pickups, and inter-island ferry passes.
+              </p>
+              <a
+                href="#"
+                data-upsell="klookTransfers"
+                className="mt-auto block text-center py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-cyan-600 text-white text-sm font-bold transition"
+              >
+                Book Transfers on Klook →
+              </a>
+            </div>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col shadow-sm">
-            <div className="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-700 flex items-center justify-center mb-5">
-              <Shield className="w-6 h-6" />
+          <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col shadow-sm group">
+            <div className="h-44 overflow-hidden relative">
+              <img
+                src="/images/essentials/travel-insurance.jpg"
+                alt="Digital nomad working on beach with travel medical insurance"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+              />
+              <span className="absolute top-3 left-3 bg-slate-900/90 text-cyan-300 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full backdrop-blur-sm">
+                SafetyWing
+              </span>
             </div>
-            <span className="text-xs font-extrabold uppercase text-cyan-700 tracking-wider mb-1">
-              SafetyWing
-            </span>
-            <h3 className="text-xl font-extrabold text-slate-900 mb-2">
-              Nomad Travel Medical Insurance
-            </h3>
-            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-              Global medical protection for island travelers and digital nomads. Covers unexpected illnesses, emergency transport, lost luggage, and trip delays.
-            </p>
-            <a
-              href="#"
-              data-upsell="safetyWing"
-              className="mt-auto block text-center py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-cyan-600 text-white text-sm font-bold transition"
-            >
-              Get Nomad Insurance →
-            </a>
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-extrabold text-slate-900 mb-2">
+                Nomad Travel Medical Insurance
+              </h3>
+              <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+                Global medical protection for island travelers and digital nomads. Covers unexpected illnesses, emergency transport, lost luggage, and trip delays.
+              </p>
+              <a
+                href="#"
+                data-upsell="safetyWing"
+                className="mt-auto block text-center py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-cyan-600 text-white text-sm font-bold transition"
+              >
+                Get Nomad Insurance →
+              </a>
+            </div>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col shadow-sm">
-            <div className="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-700 flex items-center justify-center mb-5">
-              <Plane className="w-6 h-6" />
+          <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col shadow-sm group">
+            <div className="h-44 overflow-hidden relative">
+              <img
+                src="/images/essentials/flight-search.jpg"
+                alt="Airplane soaring above clouds over tropical islands"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+              />
+              <span className="absolute top-3 left-3 bg-slate-900/90 text-cyan-300 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full backdrop-blur-sm">
+                Skyscanner
+              </span>
             </div>
-            <span className="text-xs font-extrabold uppercase text-cyan-700 tracking-wider mb-1">
-              Skyscanner
-            </span>
-            <h3 className="text-xl font-extrabold text-slate-900 mb-2">
-              Multi-City Regional Flights
-            </h3>
-            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-              Compare multi-stop flight fares between Singapore, Kuala Lumpur, Bangkok, Bali, and Male. Find open-jaw route bargains with zero extra fees.
-            </p>
-            <a
-              href="#"
-              data-upsell="skyscanner"
-              className="mt-auto block text-center py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-cyan-600 text-white text-sm font-bold transition"
-            >
-              Compare Flights on Skyscanner →
-            </a>
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-extrabold text-slate-900 mb-2">
+                Multi-City Regional Flights
+              </h3>
+              <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+                Compare multi-stop flight fares between Singapore, Kuala Lumpur, Bangkok, Bali, and Male. Find open-jaw route bargains with zero extra fees.
+              </p>
+              <a
+                href="#"
+                data-upsell="skyscanner"
+                className="mt-auto block text-center py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-cyan-600 text-white text-sm font-bold transition"
+              >
+                Compare Flights on Skyscanner →
+              </a>
+            </div>
           </div>
         </div>
       </section>

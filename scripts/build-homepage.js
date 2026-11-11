@@ -250,6 +250,15 @@ const DESTINATIONS_DATA = [
   }
 ];
 
+const DESTINATION_IMAGES = {
+  maldives: "/images/destinations/maldives.jpg",
+  indonesia: "/images/destinations/bali.jpg",
+  malaysia: "/images/destinations/malaysia.jpg",
+  singapore: "/images/destinations/singapore.jpg",
+  thailand: "/images/destinations/thailand.jpg",
+  asia: "/images/destinations/asia-regional.jpg"
+};
+
 function buildDestinationBlocks() {
   return DESTINATIONS_DATA.map(d => {
     const cards = d.providers.map((p, idx) => `
@@ -276,16 +285,27 @@ function buildDestinationBlocks() {
       </div>
     `).join('\n');
 
+    const imgUrl = DESTINATION_IMAGES[d.key] || "/images/destinations/maldives.jpg";
+
     return `
-      <div id="plans-${d.key}" class="dest-block">
-        <div class="dest-block-header">
-          <div class="dest-meta">
-            <span class="dest-flag">${d.flag}</span>
-            <div>
-              <h3 class="dest-name">${d.name}</h3>
-              <span class="dest-network-pill">⚡ ${d.carrier}</span>
+      <div id="plans-${d.key}" class="dest-block" style="overflow: hidden;">
+        <div style="position: relative; height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
+          <img src="${imgUrl}" alt="${d.name} travel eSIM" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.45), transparent); display: flex; align-items: center; padding: 1.5rem;">
+            <div style="color: #fff;">
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                <span style="font-size: 1.5rem;">${d.flag}</span>
+                <h3 style="font-size: 1.35rem; font-weight: 800; margin: 0; color: #fff;">${d.name}</h3>
+              </div>
+              <div style="font-size: 0.75rem; color: #67e8f9; font-weight: 600;">
+                <span style="background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(6, 182, 212, 0.4); padding: 2px 8px; border-radius: 4px;">Tier-1 5G: ${d.carrier}</span>
+                <span style="margin-left: 0.5rem; color: #cbd5e1;">• Instant QR Delivery</span>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="dest-block-header">
+          <span style="font-size: 0.875rem; color: #64748b; font-weight: 600;">Recommended Competing Data Plans:</span>
           <a href="/guides/index.html" style="font-size: 0.875rem; font-weight: 700; color: var(--primary-dark);">
             View ${d.name} Guides & Benchmarks →
           </a>
@@ -346,7 +366,7 @@ function buildIndexHTML() {
     "name": "NileRoam",
     "legalName": "Nile Supplies",
     "url": "https://e-sim.nilesupplies.com",
-    "logo": "https://e-sim.nilesupplies.com/favicon.ico",
+    "logo": "https://e-sim.nilesupplies.com/images/logo.png",
     "email": "contact@nilesupplies.com",
     "sameAs": [
       "https://nilesupplies.com",
@@ -362,6 +382,10 @@ function buildIndexHTML() {
   <title>NileRoam | Asia & Maldives Travel eSIM Comparison (Airalo vs Saily vs Yesim)</title>
   <meta name="description" content="Compare prepaid travel eSIMs for Maldives, Bali, Malaysia, Singapore, and Thailand. 3 competing providers side-by-side (Airalo, Saily, Yesim) with instant QR delivery, local 5G networks, and zero roaming fees.">
   <link rel="canonical" href="https://e-sim.nilesupplies.com/">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="google-site-verification" content="rV1RZXThL3QraO9ulwKay-9HBhmmfVKkvUgPwYMDRMQ">
   <meta property="og:title" content="NileRoam | Asia & Maldives Travel eSIM Comparison">
   <meta property="og:description" content="Instant QR delivery on Tier-1 local 5G networks. Compare Airalo, Saily, and Yesim side-by-side for Maldives, Bali, Singapore, Malaysia, and Thailand.">
   <meta property="og:url" content="https://e-sim.nilesupplies.com/">
@@ -396,17 +420,8 @@ function buildIndexHTML() {
   <!-- REBRANDED NILEROAM HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="/" class="brand-logo">
-        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V4"/>
-          <circle cx="12" cy="12" r="10" stroke-opacity="0.3"/>
-          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-          <path d="M2 12h20"/>
-        </svg>
-        <div class="brand-text">
-          <span class="brand-title">NileRoam</span>
-          <span class="brand-sub">by NileSupplies</span>
-        </div>
+      <a href="/" class="brand-logo" style="display: flex; align-items: center;">
+        <img src="/images/logo-horizontal.png" alt="NileRoam by NileSupplies" style="height: 40px; width: auto; object-fit: contain;">
       </a>
       <nav class="main-nav">
         <a href="#plans" class="active">Destinations</a>
@@ -423,20 +438,38 @@ function buildIndexHTML() {
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero-section">
-    <div class="hero-inner">
-      <div class="hero-pill">
-        <span>⚡ Instant QR Delivery • Zero Roaming Surcharges</span>
+  <section class="hero-section" style="position: relative; overflow: hidden; padding: 4rem 1rem;">
+    <div class="hero-inner" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center; max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: left;">
+        <div class="hero-pill">
+          <span>⚡ Instant QR Delivery • Zero Roaming Surcharges</span>
+        </div>
+        <h1 class="hero-title" style="text-align: left; font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.15; margin-top: 1rem;">
+          Prepaid Travel eSIMs for the Maldives, Bali & Across Asia
+        </h1>
+        <p class="hero-subtitle" style="text-align: left; margin: 1.5rem 0 2rem 0; font-size: 1.15rem; color: #cbd5e1;">
+          Compare <strong>Airalo</strong>, <strong>Saily</strong>, and <strong>Yesim</strong> side-by-side on Tier-1 local carriers: Ooredoo, Dhiraagu, Telkomsel, Singtel, CelcomDigi, and AIS. Install before takeoff, connect the instant you land.
+        </p>
+        <div class="hero-actions" style="justify-content: flex-start;">
+          <a href="#plans" class="btn-hero-primary">Compare All Plans Side-by-Side ↓</a>
+          <a href="#calculator" class="btn-hero-outline">Calculate My Data Need</a>
+        </div>
       </div>
-      <h1 class="hero-title">
-        Prepaid Travel eSIMs for the Maldives, Bali & Across Asia
-      </h1>
-      <p class="hero-subtitle">
-        Compare <strong>Airalo</strong>, <strong>Saily</strong>, and <strong>Yesim</strong> side-by-side on Tier-1 local carriers: Ooredoo, Dhiraagu, Telkomsel, Singtel, CelcomDigi, and AIS. Install before takeoff, connect the instant you land.
-      </p>
-      <div class="hero-actions">
-        <a href="#plans" class="btn-hero-primary">Compare All Plans Side-by-Side ↓</a>
-        <a href="#calculator" class="btn-hero-outline">Calculate My Data Need</a>
+      <div style="position: relative;">
+        <div style="position: relative; border-radius: 1.25rem; overflow: hidden; border: 1px solid rgba(6, 182, 212, 0.3); box-shadow: 0 25px 50px -12px rgba(8, 145, 178, 0.25);">
+          <img src="/images/hero-traveler-esim.jpg" alt="Traveler with 5G eSIM connectivity on tropical beach" style="width: 100%; height: 380px; object-fit: cover; display: block;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, transparent 60%);"></div>
+          <div style="position: absolute; bottom: 1rem; left: 1rem; right: 1rem; background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(12px); padding: 0.875rem 1rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #34d399; box-shadow: 0 0 10px #34d399; display: inline-block;"></span>
+              <div>
+                <div style="font-size: 0.8125rem; font-weight: 700; color: #fff;">Tier-1 5G Connected</div>
+                <div style="font-size: 0.6875rem; color: #94a3b8;">Zero latency • Instant QR Activation</div>
+              </div>
+            </div>
+            <span style="font-size: 0.75rem; font-weight: 800; color: #22d3ee;">5G Fast</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -542,49 +575,46 @@ function buildIndexHTML() {
     </div>
 
     <div class="essentials-grid">
-      <div class="essential-card">
-        <div class="essential-icon-wrapper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
-            <circle cx="7" cy="17" r="2"/>
-            <path d="M9 17h6"/>
-            <circle cx="17" cy="17" r="2"/>
-          </svg>
+      <div class="essential-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 180px; overflow: hidden; position: relative;">
+          <img src="/images/essentials/airport-transfer.jpg" alt="Speedboat transfers" style="width: 100%; height: 100%; object-fit: cover;">
+          <span style="position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(15, 23, 42, 0.9); color: #67e8f9; font-size: 0.6875rem; font-weight: 800; text-transform: uppercase; padding: 3px 8px; border-radius: 9999px;">Klook Partner</span>
         </div>
-        <div class="essential-partner">Klook Partner</div>
-        <div class="essential-title">Airport & Island Speedboat Transfers</div>
-        <div class="essential-desc">
-          Skip airport taxi haggling and long queues. Pre-book private Male airport speedboats, Bali Denpasar airport pickups, and inter-island ferry passes.
+        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
+          <div class="essential-title">Airport & Island Speedboat Transfers</div>
+          <div class="essential-desc">
+            Skip airport taxi haggling and long queues. Pre-book private Male airport speedboats, Bali Denpasar airport pickups, and inter-island ferry passes.
+          </div>
+          <a href="#" data-upsell="klookTransfers" class="btn-essential" style="margin-top: auto;">Book Transfers on Klook →</a>
         </div>
-        <a href="#" data-upsell="klookTransfers" class="btn-essential">Book Transfers on Klook →</a>
       </div>
 
-      <div class="essential-card">
-        <div class="essential-icon-wrapper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
+      <div class="essential-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 180px; overflow: hidden; position: relative;">
+          <img src="/images/essentials/travel-insurance.jpg" alt="Nomad travel insurance" style="width: 100%; height: 100%; object-fit: cover;">
+          <span style="position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(15, 23, 42, 0.9); color: #67e8f9; font-size: 0.6875rem; font-weight: 800; text-transform: uppercase; padding: 3px 8px; border-radius: 9999px;">SafetyWing</span>
         </div>
-        <div class="essential-partner">SafetyWing</div>
-        <div class="essential-title">Nomad Travel Medical Insurance</div>
-        <div class="essential-desc">
-          Global medical protection for island travelers and digital nomads. Covers unexpected illnesses, emergency transport, lost luggage, and trip delays.
+        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
+          <div class="essential-title">Nomad Travel Medical Insurance</div>
+          <div class="essential-desc">
+            Global medical protection for island travelers and digital nomads. Covers unexpected illnesses, emergency transport, lost luggage, and trip delays.
+          </div>
+          <a href="#" data-upsell="safetyWing" class="btn-essential" style="margin-top: auto;">Get Nomad Insurance →</a>
         </div>
-        <a href="#" data-upsell="safetyWing" class="btn-essential">Get Nomad Insurance →</a>
       </div>
 
-      <div class="essential-card">
-        <div class="essential-icon-wrapper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
-          </svg>
+      <div class="essential-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 180px; overflow: hidden; position: relative;">
+          <img src="/images/essentials/flight-search.jpg" alt="Flight search" style="width: 100%; height: 100%; object-fit: cover;">
+          <span style="position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(15, 23, 42, 0.9); color: #67e8f9; font-size: 0.6875rem; font-weight: 800; text-transform: uppercase; padding: 3px 8px; border-radius: 9999px;">Skyscanner</span>
         </div>
-        <div class="essential-partner">Skyscanner</div>
-        <div class="essential-title">Multi-City Regional Flights</div>
-        <div class="essential-desc">
-          Compare multi-stop flight fares between Singapore, Kuala Lumpur, Bangkok, Bali, and Male. Find open-jaw route bargains with zero extra fees.
+        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
+          <div class="essential-title">Multi-City Regional Flights</div>
+          <div class="essential-desc">
+            Compare multi-stop flight fares between Singapore, Kuala Lumpur, Bangkok, Bali, and Male. Find open-jaw route bargains with zero extra fees.
+          </div>
+          <a href="#" data-upsell="skyscanner" class="btn-essential" style="margin-top: auto;">Compare Flights on Skyscanner →</a>
         </div>
-        <a href="#" data-upsell="skyscanner" class="btn-essential">Compare Flights on Skyscanner →</a>
       </div>
     </div>
   </section>
@@ -622,13 +652,8 @@ function buildIndexHTML() {
     <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-col brand-col">
-          <div class="footer-logo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-cyan-400">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-              <path d="M2 12h20"/>
-            </svg>
-            <span>NileRoam (by Nile Supplies)</span>
+          <div class="footer-logo" style="margin-bottom: 1rem;">
+            <img src="/images/logo-horizontal-white.png" alt="NileRoam by Nile Supplies" style="height: 38px; width: auto; object-fit: contain;">
           </div>
           <p class="footer-desc">
             Independent digital connectivity and prepaid travel eSIM comparison portal for the Maldives, Bali (Indonesia), Malaysia, Singapore, Thailand, and pan-Asia destinations. Compare Tier-1 local carriers, skip airport SIM kiosks, and stay connected seamlessly.

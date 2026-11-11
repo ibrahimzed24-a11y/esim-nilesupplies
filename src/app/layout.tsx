@@ -39,6 +39,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="google-site-verification" content="rV1RZXThL3QraO9ulwKay-9HBhmmfVKkvUgPwYMDRMQ" />
         <script
           dangerouslySetInnerHTML={{
@@ -61,26 +64,12 @@ export default function RootLayout({
         {/* HEADER */}
         <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-slate-900 flex items-center justify-center text-cyan-400 shadow-sm p-1.5">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                  <path d="M2 20h.01" />
-                  <path d="M7 20v-4" />
-                  <path d="M12 20v-8" />
-                  <path d="M17 20V4" />
-                  <circle cx="12" cy="12" r="10" strokeOpacity="0.3" />
-                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                  <path d="M2 12h20" />
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-lg tracking-tight text-slate-900 leading-tight">
-                  NileRoam
-                </span>
-                <span className="text-[10px] font-bold text-cyan-700 tracking-wider uppercase">
-                  by NileSupplies
-                </span>
-              </div>
+            <Link href="/" className="flex items-center gap-3">
+              <img
+                src="/images/logo-horizontal.png"
+                alt="NileRoam by NileSupplies"
+                className="h-10 w-auto object-contain"
+              />
             </Link>
 
             <nav className="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
@@ -122,13 +111,12 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
               <div className="md:col-span-2">
-                <div className="flex items-center gap-2 text-white font-extrabold text-lg mb-3">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-cyan-400">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                    <path d="M2 12h20" />
-                  </svg>
-                  <span>NileRoam (by Nile Supplies)</span>
+                <div className="flex items-center gap-2 mb-3">
+                  <img
+                    src="/images/logo-horizontal-white.png"
+                    alt="NileRoam by Nile Supplies"
+                    className="h-10 w-auto object-contain"
+                  />
                 </div>
                 <p className="text-sm text-slate-400 max-w-md leading-relaxed mb-4">
                   Independent digital connectivity and prepaid travel eSIM comparison portal for the Maldives, Bali (Indonesia), Malaysia, Singapore, Thailand, and pan-Asia travel. Compare Tier-1 local carriers, avoid airport SIM lines, and connect seamlessly.
