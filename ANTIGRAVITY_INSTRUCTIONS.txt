@@ -1,0 +1,84 @@
+================================================================================
+GOOGLE ANTIGRAVITY — AUTONOMOUS BUILD, DEPLOY & DNS EXECUTION INSTRUCTIONS
+Project: NileSupplies Asia eSIM Portal
+Target Subdomain: https://e-sim.nilesupplies.com
+Official Business Email: contact@nilesupplies.com
+================================================================================
+
+COPY AND PASTE THE PROMPT BELOW DIRECTLY INTO GOOGLE ANTIGRAVITY:
+
+--------------------------------------------------------------------------------
+[START OF ANTIGRAVITY AGENT PROMPT]
+
+You are an autonomous Full-Stack & DevOps Engineering Agent in Google Antigravity.
+Your task is to build, verify, push to GitHub, deploy to Vercel, and configure the subdomain `e-sim.nilesupplies.com` on Hostinger for this Next.js 14 project (`esim-nilesupplies`).
+
+CRITICAL GLOBAL RULE:
+Always use the official business email `contact@nilesupplies.com` across all configurations, Git commits, environment variables, legal/contact metadata, and platform logins.
+
+Execute the following 5 phases sequentially without skipping any step:
+
+PHASE 1: VERIFY PROJECT FILES & LOCAL PRODUCTION BUILD
+1. Ensure you are in the project root directory (`esim-nilesupplies`).
+2. Create a `.env.local` file from `.env.example` containing:
+   NEXT_PUBLIC_SITE_URL=https://e-sim.nilesupplies.com
+   NEXT_PUBLIC_CONTACT_EMAIL=contact@nilesupplies.com
+   NEXT_PUBLIC_AFFILIATE_BASE_URL=https://www.airalo.com
+3. Run `npm install` in the terminal to install all dependencies.
+4. Run `npm run build` to verify TypeScript compilation, static page generation, and API routes (`/api/go` and `/api/calculate`).
+5. If any build warning or error appears, fix it immediately and re-run `npm run build` until it succeeds cleanly with exit code 0.
+
+PHASE 2: GIT INITIALIZATION & GITHUB REPOSITORY PUSH
+1. Configure Git locally in this repository to strictly use the official business identity:
+   git init
+   git config user.name "Nile Supplies"
+   git config user.email "contact@nilesupplies.com"
+   git branch -M main
+2. Stage and commit all files:
+   git add .
+   git commit -m "feat: initial production release of e-sim.nilesupplies.com"
+3. Using the GitHub CLI (`gh`), create a new repository named `esim-nilesupplies` and push the `main` branch:
+   gh repo create esim-nilesupplies --public --source=. --remote=origin --push
+   (If the repo already exists, link remote origin and run `git push -u origin main`).
+
+PHASE 3: VERCEL PRODUCTION DEPLOYMENT & SUBDOMAIN ATTACHMENT
+1. Deploy the project to production using the Vercel CLI:
+   npx vercel --prod --yes
+2. Set the required production environment variables on Vercel:
+   npx vercel env add NEXT_PUBLIC_SITE_URL production <<< "https://e-sim.nilesupplies.com"
+   npx vercel env add NEXT_PUBLIC_CONTACT_EMAIL production <<< "contact@nilesupplies.com"
+3. Attach the custom subdomain `e-sim.nilesupplies.com` to this Vercel project:
+   npx vercel domains add e-sim.nilesupplies.com
+   (Or via Vercel Dashboard -> Project Settings -> Domains -> Add `e-sim.nilesupplies.com`).
+4. Note the exact CNAME target required by Vercel (default is `cname.vercel-dns.com` or the project-specific `*.vercel-dns-017.com` value shown by Vercel).
+
+PHASE 4: HOSTINGER SUBDOMAIN & DNS CONFIGURATION (BROWSER AGENT)
+1. Open the browser agent and navigate to Hostinger hPanel: https://hpanel.hostinger.com
+2. Ensure you are logged in with the official account managing `nilesupplies.com` (`contact@nilesupplies.com`).
+3. Go to: Domains -> `nilesupplies.com` -> DNS / Nameservers -> DNS Records.
+4. Add a new DNS Record for the subdomain `e-sim.nilesupplies.com`:
+   - Type: CNAME
+   - Name (Host): e-sim
+   - Points to (Target): cname.vercel-dns.com (or the exact CNAME value provided by Vercel in Phase 3)
+   - TTL: 14400 (or Default / 3600)
+5. Click "Add Record" / "Save".
+6. If an existing A or CNAME record conflicts with `e-sim`, remove or update it so `e-sim` points exclusively to Vercel.
+
+PHASE 5: FINAL VERIFICATION & LIVE HEALTH CHECK
+1. Wait 60–120 seconds for DNS propagation and SSL certificate provisioning on Vercel.
+2. Verify that `https://e-sim.nilesupplies.com` loads over HTTPS with no SSL errors.
+3. Test the following routes to confirm 200 OK / 307 Redirect responses:
+   - `https://e-sim.nilesupplies.com/` (Main Landing Page, Destination Filter, Calculator, Device Check)
+   - `https://e-sim.nilesupplies.com/legal` (About Us, Privacy Policy, Affiliate Disclosure showing `contact@nilesupplies.com`)
+   - `https://e-sim.nilesupplies.com/guides/best-esim-for-maldives-resorts-and-local-islands`
+   - `https://e-sim.nilesupplies.com/sitemap.xml`
+   - `https://e-sim.nilesupplies.com/api/go?id=mv-10gb&ref=test` (Must return 307 Temporary Redirect to the target eSIM page).
+4. Report back the live URL, GitHub repository URL, and DNS verification status.
+
+[END OF ANTIGRAVITY AGENT PROMPT]
+--------------------------------------------------------------------------------
+
+HOW TO UPDATE YOUR AFFILIATE LINKS AFTER IMPACT.COM / AIRALO APPROVAL:
+1. Open `src/data/esimData.ts`.
+2. Replace `AIRALO_AFFILIATE_BASE` or individual `affiliateTargetUrl` entries with your Impact.com deep links.
+3. Run `git commit -am "chore: update impact affiliate links" && git push` — Vercel will auto-deploy in 30 seconds.
