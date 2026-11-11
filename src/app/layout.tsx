@@ -35,6 +35,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function () {
+              var script = document.createElement("script");
+              script.async = 1;
+              script.setAttribute("data-cmp-ab","2");
+              script.src = 'https://tp-em.com/NTk5MDQ1.js?t=599045';
+              document.head.appendChild(script);
+            })();`,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white font-sans bg-slate-50 text-slate-800">
         {/* TOP TRUST BAR */}
         <div className="bg-slate-900 text-cyan-300 text-xs py-2 px-4 text-center font-semibold border-b border-cyan-500/20">

@@ -1,6 +1,6 @@
 const AFFILIATE_CONFIG = {
   trackingIds: {
-    travelpayoutsMarker: "YOUR_TP_MARKER_ID",
+    travelpayoutsMarker: "599045",
     impactAiraloId: "YOUR_IMPACT_AIRALO_ID",
     impactSailyId: "YOUR_IMPACT_SAILY_ID",
     yesimPartnerCode: "YOUR_YESIM_CODE",
