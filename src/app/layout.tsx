@@ -34,6 +34,7 @@ const NAV_LINKS: NavLink[] = [
   { href: "/#calculator", label: "Data Calculator" },
   { href: "/#compatibility", label: "Device Check" },
   { href: "/#guides", label: "Travel Guides" },
+  { href: "/blog", label: "Blog" },
   { href: "/#faq", label: "FAQ" },
   { href: "/legal", label: "About & Legal" },
 ];
