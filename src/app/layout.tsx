@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     siteName: "NileRoam",
     type: "website",
   },
+  verification: {
+    google: "rV1RZXThL3QraO9ulwKay-9HBhmmfVKkvUgPwYMDRMQ",
+  },
 };
 
 export default function RootLayout({
@@ -36,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="rV1RZXThL3QraO9ulwKay-9HBhmmfVKkvUgPwYMDRMQ" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function () {
